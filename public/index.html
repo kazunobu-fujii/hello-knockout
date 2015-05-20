@@ -26,19 +26,26 @@
     </div>
   </nav>
   <div class="container">
-    <!-- Home -->
-    <div class="panel panel-primary" data-bind="with: homeData, visible: chosenTabId() == 'Home'">
-      <p data-bind="text: $data.title"></p>
-    </div>
-    <!-- Link -->
-    <div class="panel panel-success" data-bind="with: linkData, visible: chosenTabId() == 'Link'">
-      <p data-bind="text: $data.content"></p>
-    </div>
-    <!-- About -->
-    <div class="panel panel-info" data-bind="with: aboutData, visible: chosenTabId() == 'About'">
-      <p data-bind="text: $data.description"></p>
-    </div>
+    <div data-bind="template: { name: chosenTabId(), data: chosenTabData }"></div>
   </div>
+  <!-- Home -->
+  <script type="text/html" id="Home">
+    <div class="panel panel-primary">
+      <p data-bind="text: title"></p>
+    </div>
+  </script>
+  <!-- Link -->
+  <script type="text/html" id="Link">
+    <div class="panel panel-success">
+      <p data-bind="text: content"></p>
+    </div>
+  </script>
+  <!-- About -->
+  <script type="text/html" id="About">
+    <div class="panel panel-info">
+      <p data-bind="text: description"></p>
+    </div>
+  </script>
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src="bundle.js"></script>
