@@ -10,6 +10,11 @@
     "browser": "browser-sync start --files public/* --server public",
     "start": "npm run watch & npm run browser"
   },
+  "browserify": {
+    "transform": [
+      ["stringify"]
+    ]
+  },
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -18,6 +23,7 @@
   "devDependencies": {
     "browser-sync": "^2.7.1",
     "browserify": "^10.2.0",
+    "stringify": "^3.1.0",
     "watchify": "^3.2.1"
   }
 }

@@ -33,17 +33,7 @@ ko.components.register('nav-bar', {
     var self = this;
     self.tabs = ['Home', 'Link', 'About'];
   },
-  template: '<nav class="navbar navbar-default">\
-    <div class="container-fluid">\
-      <div class="navbar-collapse">\
-        <ul class="nav navbar-nav" data-bind="foreach: tabs">\
-          <li data-bind="css: { active: $data == $root.chosenTabId() }">\
-            <a href="#" data-bind="text: $data, click: $root.goToTab"></a>\
-          </li>\
-        </ul>\
-      </div>\
-    </div>\
-  </nav>'
+  template: require('./components/nav-bar.html')
 });
 
 ko.applyBindings(new HelloViewModel());
