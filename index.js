@@ -4,7 +4,6 @@ function HelloViewModel() {
   var self = this;
 
   // Data
-  self.tabs = ['Home', 'Link', 'About'];
   self.chosenTabId = ko.observable();
 
   self.homeData = ko.observable({title: "home"});
@@ -28,6 +27,24 @@ function HelloViewModel() {
 
   self.goToTab('Home');
 }
+
+ko.components.register('nav-bar', {
+  viewModel: function(params) {
+    var self = this;
+    self.tabs = ['Home', 'Link', 'About'];
+  },
+  template: '<nav class="navbar navbar-default">\
+    <div class="container-fluid">\
+      <div class="navbar-collapse">\
+        <ul class="nav navbar-nav" data-bind="foreach: tabs">\
+          <li data-bind="css: { active: $data == $root.chosenTabId() }">\
+            <a href="#" data-bind="text: $data, click: $root.goToTab"></a>\
+          </li>\
+        </ul>\
+      </div>\
+    </div>\
+  </nav>'
+});
 
 ko.applyBindings(new HelloViewModel());
 
