@@ -1,0 +1,23 @@
+{
+  "name": "hello-knockout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production browserify -d index.js -o public/bundle.js",
+    "watch": "watchify index.js -dv -o public/bundle.js",
+    "browser": "browser-sync start --files public/* --server public",
+    "start": "npm run watch & npm run browser"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "knockout": "^3.3.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.7.1",
+    "browserify": "^10.2.0",
+    "watchify": "^3.2.1"
+  }
+}
